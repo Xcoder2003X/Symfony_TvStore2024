@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/css/error.css" rel="stylesheet">
+
+
+  <title>Document</title>
+</head>
+<body>
+  <div class="header">
+    <h2 class="fixed">Click the letters!</h2>
+    <h1 class="animated"></h1>
+  </div>
+<div class="word">
+  <span>E</span>
+  <span>R</span>
+  <span>R</span>
+  <span>❤️</span>
+  <span>R</span>
+  <p class="p404">page&nbsp;not&nbsp;found&nbsp;4&nbsp;0&nbsp;4</p>
+</div>
+<footer>
+  <p>Created with ❤️ by <a target="_blank" href="https://www.linkedin.com/feed/"><span class="creator">
+    Ayou_Boss</span></a></p>
+</footer>
+<script>
+  const spans = document.querySelectorAll('.word span');// selectionner tous les spans dans word
+
+spans.forEach((span, idx) => {
+  span.addEventListener('click', (e) => {
+    e.target.classList.add('active');  // ajouter active a .word span
+  });
+  span.addEventListener('animationend', (e) => {
+    e.target.classList.remove('active');
+  });
+  
+  // Initial animation
+  setTimeout(() => {
+    span.classList.add('active');
+  }, 750 * (idx+1))
+});
+
+
+</script>
+</body>
+</html>

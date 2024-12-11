@@ -1,0 +1,333 @@
+body,html { 
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141114; 
+    background-image: linear-gradient(335deg, black 23px, transparent 23px), linear-gradient(155deg, black 23px, transparent 23px), linear-gradient(335deg, black 23px, transparent 23px), linear-gradient(155deg, black 23px, transparent 23px);
+     background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px; }
+
+.navbar {
+color: white; /* Dark navbar background */
+}
+
+.nav-link, .navbar-brand {
+color: #ffffff !important;
+font-weight: bold;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+color: #d1d1d1 !important;
+}
+
+
+.form-container { 
+
+    margin: auto !important; 
+    gap: 20px; background-color: transparent; 
+    width: 600px; padding: 20px; color: #ffffff; 
+    height: 500px;
+    box-shadow: 0 0 10px orange; border-radius: 10px; 
+    font-size: 20px; font-weight: 800; 
+
+} 
+
+form { 
+    display: flex; 
+    gap: 20px;
+    flex-direction: column;
+    width: 100%; 
+
+} 
+
+.form-group { 
+    display: flex; gap: 50px; 
+} 
+ 
+
+.form-group input, .form-group textarea { 
+    flex: 2; padding: 10px; border-radius: 5px; 
+    border: 1px solid #ddd; 
+
+} 
+
+.add-rev{
+    text-align: center;
+    font-weight: 700;
+    font-size: 26px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+textarea { 
+    width: 600px; height: 200px; 
+} 
+
+
+
+
+.form-container button {
+  align-items: center;
+  align-self:flex-end;
+  right: 10px;
+  background-color: #354859;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #faf5f5;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  width: 100;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.form-container button:after {
+  background-color: #767373;
+  color: #343a40;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  right: 0;
+  width: 180px;
+  position: absolute;
+  top: -3px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.form-container button:hover:after {
+  transform: translate(0, 0);
+}
+
+.form-container button:active {
+  background-color: #313131;
+  outline: 0;
+}
+
+.form-container button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+    .form-container button {
+    padding: 0 40px;
+  }
+}
+
+/* Add Review button*/
+
+
+
+/* CSS */
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+/*  Review section*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+*{
+  box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+  width: 100%;
+height: 100%;
+    padding: 0;
+}
+
+
+
+.cards {
+    margin-top: 40px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    width: 1000px;
+}
+
+
+
+
+.card__like {
+    width: 18px;
+}
+
+.card__clock {
+    width: 15px;
+  vertical-align: middle;
+    fill: #AD7D52;
+}
+.card__time {
+    font-size: 12px;
+    color: #AD7D52;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.card__clock-info {
+    float: right;
+}
+
+.card__img {
+  visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 235px;
+  border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+  
+}
+
+.card__info-hover {
+    position: absolute;
+    padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+}
+
+.card__img--hover {
+  transition: 0.2s all ease-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+  position: absolute;
+    height: 235px;
+  border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+top: 0;
+  
+}
+.card {
+  margin-right: 25px;
+  transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+  background-color: #5a5959;
+    width: 33.3%;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+}
+.card:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
+    transform: scale(1.10, 1.10);
+}
+
+.card__info {
+z-index: 2;
+  background-color: #fff;
+  border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+   padding: 16px 24px 24px 24px;
+}
+
+.card__category {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  color: #868686;
+}
+
+.card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+    font-family: 'Roboto Slab', serif;
+}
+
+.card__by {
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+.card__author {
+    bottom:2px;
+    right: 2px;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    color: #AD7D52;
+}
+
+.card:hover .card__img--hover {
+    height: 100%;
+    opacity: 0.3;
+}
+
+.card:hover .card__info {
+    background-color: transparent;
+    position: relative;
+}
+
+.card:hover .card__info-hover {
+    opacity: 1;
+}

@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .bgcolor{
+        background-color: #141114; 
+    background-image: linear-gradient(335deg, black 23px, transparent 23px), linear-gradient(155deg, black 23px, transparent 23px), linear-gradient(335deg, black 23px, transparent 23px), linear-gradient(155deg, black 23px, transparent 23px);
+     background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+    }
+    </style>
     <title>My Orders</title>
 </head>
-<body style="background-color: rgb(146, 146, 146);">
+<body class="bgcolor">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -112,7 +120,7 @@
                     <tr class="text-center">
                         <th colspan="3" style="color: rgb(240, 147, 26);">Total a payer </th>
 
-                            <td style="color: rgb(240, 147, 26);" class="fw-bold">{{sum}} €</td>
+                            <td style="color: rgb(240, 147, 26);" class="fw-bold">{{sum}} $</td>
                             <td></td>
                             <td style="color: rgb(240, 147, 26);" class="fw-bold">{{quantity}} </td>
                     </tr>

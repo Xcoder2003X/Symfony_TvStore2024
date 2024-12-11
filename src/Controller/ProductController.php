@@ -40,6 +40,7 @@ class ProductController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $image= $request->files->get("product")["image"];
+            // $image_name (date+""+the original name inside user computer)
             $image_name = time()."".$image->getClientOriginalName();
             $image->move($this->getParameter("image_directory"),$image_name);  
             // changer le nom du image du product from the name passed on the form to image_name wich is date_creation + nom image on device
@@ -83,9 +84,11 @@ class ProductController extends AbstractController
             throw $this->createNotFoundException('No product found for id ' . $id);
         }
     
+        //The form is then populated with the current request data.
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
     
+        // si la forme a ete valide et envoyer
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
     
@@ -94,6 +97,8 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('product_list');
         }
     
+        // si la forme n est pas envoyee en doit rester dans edit.twig qu on doit
+        // la passer form et product
         return $this->render('product/edit.html.twig', [
             'form' => $form->createView(),
             'product' => $product,

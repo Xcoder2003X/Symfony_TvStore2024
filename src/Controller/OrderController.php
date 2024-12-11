@@ -93,7 +93,7 @@ class OrderController extends AbstractController
     #[Route('/update/order/{id}/{status}', name: 'order_status_update')]
     public function orderStatusUpdate(Order $order,$status): Response
     {
-        $order -> setStatus($status);
+        $order -> setStatus($status);  // symfony knows the order is the order with id passed in url
         
         $this->entityManager->persist($order);
         $this->entityManager->flush();

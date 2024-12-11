@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        .filter{
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+    </style>
     <title>Symfony Form</title>
-    </head>
-    
-   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +35,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             More actions
                         </a>
+
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/product">Products</a></li>
                             <li><a class="dropdown-item" href="/store/product">Add New Product</a></li>
@@ -34,8 +44,14 @@
                             <li><a class="dropdown-item" href="/order">Update Orders </a></li>
                         </ul>
                     </li>
-                    
                 </ul>
+                <button class="dark-mode-switch" onclick="toggleDarkMode()">
+                   <div class="switch-back">
+                    <img src="{{ asset('assets/images/dark.png') }}" class="switch_img" />
+                    <img src="{{ asset('assets/images/light.png') }}" class="switch_img" />
+                   </div>
+                </button>
+
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -53,33 +69,43 @@
                     {{products|length}} <!-- length filter-->
                     <span class="visually-hidden">unread messages</span>
                 </span>
-            </button>
+                </button>
             <div>
-            <a href="{{path('app_home')}}" class="btn btn-sm btn-outline-dark mx-2">
-                All
-            </a>
-            {% for category in categories %}
-            <a href="{{path('product_show_category',{category: category.id})}}" class="btn btn-sm btn-outline-dark mx-2">
-                {{category.name}}
-            </a>
-            {% endfor %}
+                <a href="{{path('app_home')}}" class="btn btn-sm filter btn-outline-dark mx-2">
+                    All
+                </a>
+                {% for category in categories %}
+                <a href="{{path('product_show_category',{category: category.id})}}" class="btn btn-sm filter btn-outline-dark mx-2">
+                    {{category.name}}
+                </a>
+                {% endfor %}
             </div>
             </div>
         </div>
     </div>
+
+    <div class="content">
+        <div class="content__container">
+          <p class="content__container__text">
+            Hello
+          </p>
+          
+          <ul class="content__container__list">
+          </ul>
+        </div>
+      </div>
     <div class="container mt-5">
         <h1 class="mb-4">Product List</h1>
-        <div class="row">
+        <div class="row my-2">
             {% for product in products %}
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card">
                         <img src="{{ asset('uploads/'~ product.image) }}" class="card-img-top" alt="{{ product.name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">{{ product.description }}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted">{{ product.price }} €</span>
-
+                                <span class="text-muted">{{ product.price }} $</span>
                                 <a href="{{path('product_show',{id: product.id})}}"
                                 class="btn btn-sm btn-primary">View</a>
                             </div>
@@ -87,9 +113,73 @@
                     </div>
                 </div>
             {% endfor %}
+
+
         </div>
+
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        function toggleDarkMode() {
+            const theme = document.documentElement.getAttribute("data-theme");
+            const newTheme = theme === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+        }
 
+
+        // shows list items one by one every 3s
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const list = document.querySelector('.content__container__list');
+    let currentIndex = 0;
+    const itemsToAdd = ['AND WELCOM !', 'ALL USERS!', 'TO MY  TVSTORE' , "BOSS_STORE"];
+
+    function addItem() { 
+        
+        if (currentIndex < itemsToAdd.length) 
+        { const newItem = `<li class="content__container__list__item">
+            ${itemsToAdd[currentIndex]}</li>`; 
+            list.innerHTML = newItem;
+             currentIndex++; 
+        } 
+        else { clearInterval(addItemInterval); // Stops the interval after all items are added } }
+
+
+        } 
+        setTimeout(addItem, 3000);
+    }
+    // Initially hide all items
+
+    // Start showing items
+    setTimeout(addItem, 10000);
+    // Start after 3 seconds
+  });
+
+  const cardImage = document.querySelector('.card-img-top'); 
+  const card = document.querySelector('.card');
+
+  card.addEventListener('mousemove', (e) => {
+    const cardWidth = card.offsetWidth;
+    const cardHeight = card.offsetHeight;
+
+    // centre horizental
+
+   const centerX = cardWidth / 2 + card.offsetLeft;
+   // center vertical
+   const centerY = cardWidth / 2 + card.offsetTop;
+
+   let angle = Math.atan2(e.pageX - centerX, - (e.pageY - centerY) )*(180 / Math.PI);      
+
+   console.log(angle);
+   cardImage.style.transform = `rotate(${angle}deg)`;
+  });
+
+  card.addEventListener('mouseleave', () => { 
+    cardImage.style.transform = 'rotateY(0deg) rotateX(0deg)';}
+
+  )
+
+    </script>
 </body>
-</html> 
+</html>

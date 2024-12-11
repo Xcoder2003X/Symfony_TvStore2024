@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href={{asset("assets/css/welcom.css")}} rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+   <div class="row">
+      <div class="neons col-12">
+         <h1><em>$Boss$ store-</em></h1>
+      </div>
+   </div>
+</div>
+    
+      <script> // Redirect to home page after 6 seconds 
+      setTimeout(function() { 
+        window.location.href = '{{ path('app_home') }}'; }, 6000); // Adjust the time as needed </script>
+    
+</body>
+</html>
