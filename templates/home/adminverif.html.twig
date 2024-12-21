@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="adminForm">
+            <div class="form-group">
+                <label for="adminName">Nom d'admin :</label>
+                <input type="text" id="adminName" name="adminName" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Connexion</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('adminForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire
+
+            // Récupère les valeurs des champs
+            const adminName = document.getElementById('adminName').value;
+            const password = document.getElementById('password').value;
+
+            // Vérifie les valeurs (Exemple simplifié, utilisez un back-end sécurisé pour la vérification)
+            if (adminName === 'ayoub' && password === 'aaaaaa') {
+                // Redirection vers un chemin Symfony
+                window.location.href = '/store/product';
+            } 
+            else if(adminName === 'ayoub' && password === 'bbbbbb'){
+                window.location.href = '/orders';
+
+            }
+
+            else if(adminName === 'ayoub' && password === 'cccccc'){
+                window.location.href = '/product';
+
+            }
+            else {
+                alert('Nom d\'admin ou mot de passe incorrect');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -10,6 +10,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Category;
+use App\Entity\Review;
+
 
 
 
@@ -121,6 +123,13 @@ class ProductController extends AbstractController
         if ($filesystem->exists($imagePath)) {
             $filesystem->remove($imagePath);
         }
+        
+        $reviews = $product->getReviews();
+        foreach ($reviews as $review) {
+        
+         $entityManager->remove($review);
+
+        }
 
         $entityManager->remove($product);
         $entityManager->flush();
@@ -141,6 +150,14 @@ class ProductController extends AbstractController
         return $this->render('home/index.html.twig', [
             "products" => $category->getProducts(), // getProducts fonction de la relation , ne return que les produits apparient a la category passee
             "categories" => $categories,
+        ]);
+    }
+
+    #[Route('/admin', name: 'admin')]
+    public function verifAdmin(): Response
+    {
+        return $this->render('home/adminverif.html.twig', [
+            
         ]);
     }
 

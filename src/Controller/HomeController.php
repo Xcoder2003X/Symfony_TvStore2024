@@ -21,13 +21,9 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $session = $this->requestStack->getSession();
-        if (!$session->get('splash_shown')) { 
-            $session->set('splash_shown', true);
-
-            return $this->redirectToRoute('splash_screen'); 
+       
         
-        }
+        
         $products = $entityManager->getRepository(Product::class)->findAll();
         $categories = $entityManager->getRepository(Category::class)->findAll();
 
@@ -48,7 +44,7 @@ class HomeController extends AbstractController
 
     // (?!...): Ensures that the slug does not start with any of the specified paths.
 #[Route( '/{slug}', name: 'catch_all_except_specific', requirements: [
-'slug' => '(?!register|login|product|store/product|orders|order|user/orders|store/order/\d+|update/order/\d+|product/d+/review).+']    
+'slug' => '(?!register|login|product|admin|contact|store/product|orders|order|user/orders|store/order/\d+|update/order/\d+|product/d+/review).+']    
 )] 
     public function index1($slug): Response
     {

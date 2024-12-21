@@ -27,9 +27,18 @@ class OrderController extends AbstractController
     public function index(): Response
     {
         $order = new Order();
+
+        // verifier d abord si l utilisateur est authentifie
+        if(!$this->getUser()){      // si User not logged in
+            return $this->redirectToRoute("app_login");
+         }
+
+         $orders = $this->getUser()->getOrders();
+
         return $this->render('order/user.html.twig', [
             'controller_name' => 'OrderController',
             "user" => $this->getUser(),
+            "orders" => $orders,
         ]);
     }
 
@@ -39,6 +48,8 @@ class OrderController extends AbstractController
     #[Route('/orders', name: 'orders_list')]
     public function index1(): Response
     {
+
+
         $orders = $this->orderRepository->findAll();
         return $this->render('order/index.html.twig', [
             'controller_name' => 'OrderController',

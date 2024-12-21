@@ -1,0 +1,43 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+<link href="{{ asset('assets/css/contact.css') }}"rel="stylesheet">
+
+<p id='head1' class='header'>Hi Friend !</p>
+<p id='head2' class='header'>Happy </p>
+<p id='head3' class='header'>For your visit</p>
+<p id='head4' class='header'>Welcome in my profile where </p>
+<p id='head5' class='header'>We can Solve all problems together !</p>
+<a href="{{ path('app_home') }} " class="turn-home">No Thanks</a>
+<button onclick="toggleInfoCard()">Contact Me</button>
+<!--  card infos -->
+
+<div id="infoCard" class="info-card"> 
+    <div class="card"> 
+        <div class="card-body"> 
+            <h5 class="card-title">Ait Chikh Ayoub</h5> 
+            <p class="card-text">Email: ayoub.aitchikh23@ump.ac.ma</p> 
+            <p class="card-text">Phone: 0762273504</p> 
+            <p class="card-text">Address: Taiba,Iriss, Oujda, Morocco</p> 
+        </div> 
+    </div> 
+</div>
+  <div class='light x1'>B</div>
+  <div class='light x2'>O</div>
+  <div class='light x3'>S</div>
+  <div class='light x4'>S</div>
+  <div class='light x5'>A</div>
+  <div class='light x6'>Y</div>
+  <div class='light x7'>O</div>
+  <div class='light x8'>U</div>
+  <div class='light x9'>B</div>
+
+  <script>
+    function toggleInfoCard() {
+        var infoCard = document.getElementById('infoCard');
+        if (infoCard.style.display === "none" || infoCard.style.display === "") {
+            infoCard.style.display = "block";
+        } else {
+            infoCard.style.display = "none";
+        }
+    }
+    </script>
+    

@@ -1,5 +1,6 @@
 /* Custom Styles */
 body {
+    position: relative;
     height:100vh;
     width: auto;
     font-family: 'Arial', sans-serif;
@@ -77,46 +78,68 @@ body {
     --navbar-bg: #333333;
 }
 
-.dark-mode-switch {
-    
-    background: var(--navbar-bg);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
 
-    /*color 0.5s means that any changes to the color property 
-    (typically the text color) will also take 0.5 seconds to complete.*/
+/* From Uiverse.io by andrew-demchenk0 */ 
+.theme {
+  --bg-color: #fff;
+  --main-color: #323232;
+  position: relative;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: var(--bg-color);
+  border-radius: 100%;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
 }
 
-.dark-mode-switch:focus {
-    outline: none;
-    
+.input {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
 }
 
-.switch_img{
-    width: 30px !important;
-    height: 30px !important;
+.icon {
+  position: absolute;
+  top: calc(50% -13px);
+  left: calc(50% -13px);
+  width: 26px;
+  height: 26px;
 }
 
-.switch-back{
-    display: flex;
-    gap: 4px;
-    background-color: #989696;
-    color: var(--bg-color);
-    width: auto;
-    font-weight: lighter;
-    padding-inline: 2px;
-    border-radius: 5px;
-    margin-right: 8px;
+.icon.icon-moon {
+  fill: var(--main-color);
+}
+
+.icon.icon-sun {
+  stroke: var(--main-color);
+  display: none;
+}
+
+.input:checked ~ .icon.icon-sun {
+  display: block;
+}
+
+.input:checked ~ .icon.icon-moon {
+  display: none;
+}
+
+.theme:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
 }
 
 /* animation */
 
 .content {
     position: absolute;
-    top: 30%;
+    top: 26%;
     left: 40%;
     transform: translate(-50%, -50%);
     height: 160px;
@@ -248,6 +271,100 @@ body {
   
 
 
-  /*   producr create page*/
+  /* contact */
 
+  .contact-btn{
+      position: relative;
+      margin: 0 auto;
+      left: 50%; /* Place le centre de l'élément au milieu de la page */ 
+      transform: translateX(-50%); /* Ramène l'élément lui-même de moitié de sa largeur pour le centrer */ 
+      margin-top: 50px;
+      margin-bottom: 50px;
+      align-items: center;
+      appearance: none;
+      background-color: #FCFCFD;
+      border-radius: 4px;
+      border-width: 0;
+      box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: inline-flex;
+      height: 48px;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding-left: 16px;
+      padding-right: 16px;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 18px;
+    }
+
+    .contact-link{
+      color: #36395A;
+      font-family: "JetBrains Mono",monospace;
+
+    }
+    
+    .contact-btn:focus {
+      box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    }
+    
+    .contact-btn:hover {
+      box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    }
+    
+    .contact-btn:active {
+      box-shadow: #D6D6E7 0 3px 7px inset;
+    }
   
+
+  /* tv filter button*/
+
+  /* From Uiverse.io by Spacious74 */ 
+
+  .filter-tv{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 5px;
+    top: 15%;
+    width: 500px;
+  }
+
+  .filter-tv a{
+    text-decoration: none;
+    border-style: none;
+  }
+
+
+  /* From Uiverse.io by ShrinilDhorda */ 
+.btn-filter {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+}
+
+.btn-filter:active {
+  scale: 0.92;
+}
+
+.btn-filter:hover {
+  background: rgb(2,29,78);
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+  color: rgb(4, 4, 38);
+}

@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection; 
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -32,6 +34,17 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+    // get the review for thw product
+
+    #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'product', cascade: ['remove'], orphanRemoval: true)]
+    private $reviews ; 
+    public function __construct() { 
+        $this->reviews = new ArrayCollection(); 
+    } 
+    public function getReviews(): Collection { 
+        return $this->reviews; 
+    }
+
 
     public function getId(): ?int
     {
